@@ -1,9 +1,9 @@
 <html>
   <head>
-    <title>Apollo Sites Control</title>
+    <title>Camera Paths Thesis Presentation Control</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script type="text/javascript" src="openspace-api.js"></script>
-    <script type="text/javascript" src="openspace-apollo-buttons.js"></script>
+    <script type="text/javascript" src="openspace-autonavigation-buttons.js"></script>
     <script type="text/javascript" src="openspace-default-buttons.js"></script>
     <script type="text/javascript">
       //variable for js libarary
@@ -35,10 +35,10 @@
       }
       //helper function to map the buttons to html
       function mapButtons(openspace) {
-        apolloButtonGroups.map(htmlFunction);
+        autoNavigationButtonGroups.map(htmlFunction);
         document.getElementById('main').innerHTML += "<div class='card'>Default Buttons</div>"
         defaultButtonGroups.map(htmlFunction);
-        apolloButtonGroups.map(clickFunction);
+        autoNavigationButtonGroups.map(clickFunction);
         defaultButtonGroups.map(clickFunction);
       }
       //helper function to connect to opensapce
@@ -83,7 +83,7 @@
         <button onClick="connectToOpenSpace();">Connect</button>
       </div>
       <div id="main">
-        <div class='card'>Apollo Site Buttons</div>
+        <!-- <div class='card'>Apollo Site Buttons</div> -->
       </div>
       <script type="text/javascript">
         connectToOpenSpace('localhost');
