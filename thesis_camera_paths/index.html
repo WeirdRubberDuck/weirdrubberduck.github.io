@@ -35,6 +35,7 @@
       }
       //helper function to map the buttons to html
       function mapButtons(openspace) {
+        document.getElementById('main').innerHTML += "<div class='card'>AutoNavigation Buttons</div>"
         autoNavigationButtonGroups.map(htmlFunction);
         document.getElementById('main').innerHTML += "<div class='card'>Default Buttons</div>"
         defaultButtonGroups.map(htmlFunction);
@@ -83,7 +84,6 @@
         <button onClick="connectToOpenSpace();">Connect</button>
       </div>
       <div id="main">
-        <!-- <div class='card'>Apollo Site Buttons</div> -->
       </div>
       <script type="text/javascript">
         connectToOpenSpace('localhost');
