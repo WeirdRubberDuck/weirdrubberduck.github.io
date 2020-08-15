@@ -1,7 +1,31 @@
+var AutoNavigationControlButtons = {
+  title: "AutoNavigation Controls",
+  buttons: {
+    'Curve Type: Avoid Collision': async () => { 
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultCurveOption", 0)
+    },
+    'Curve Type: ZoomOutOverview': async () => { 
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultCurveOption", 3)
+    },
+  }
+};
+
+var RenderingButtons = {
+  title: "Rendering",
+  buttons: {
+    'Render Path': async () => { 
+      // TODO
+    },
+    'Render Path With Directions': async () => { 
+      // TODO
+    },
+  }
+};
+
 var GoToButtons = {
   title: "Go To Planets/ Moons",
   buttons: {
-    'Earth': async () => { 
+    'EARTH': async () => { 
       openspace.autonavigation.goTo("Earth");
     },
     'Moon': async () => { 
@@ -10,16 +34,16 @@ var GoToButtons = {
     'ISS': async () => { 
       openspace.autonavigation.goTo("ISS");
     },
-    'Mercury': async () => { 
+    'MERCURY': async () => { 
       openspace.autonavigation.goTo("Mercury");
     },
-    'Venus': async () => { 
+    'VENUS': async () => { 
       openspace.autonavigation.goTo("Venus");
     },
-    'Mars': async () => { 
+    'MARS': async () => { 
       openspace.autonavigation.goTo("Mars");
     },
-    'Jupiter': async () => { 
+    'JUPITER': async () => { 
       openspace.autonavigation.goTo("Jupiter");
     },
     'Europa': async () => { 
@@ -31,7 +55,7 @@ var GoToButtons = {
     'Callisto': async () => { 
       openspace.autonavigation.goTo("Callisto");
     },
-    'Saturn': async () => { 
+    'SATURN': async () => { 
       openspace.autonavigation.goTo("Saturn");
     },
     'Titan': async () => { 
@@ -43,16 +67,28 @@ var GoToButtons = {
     'Enceladus': async () => { 
       openspace.autonavigation.goTo("Enceladus");
     },
-    'Uranus': async () => { 
+    'URANUS': async () => { 
       openspace.autonavigation.goTo("Uranus");
     },
-    'Neptune': async () => { 
+    'NEPTUNE': async () => { 
       openspace.autonavigation.goTo("Neptune");
     },
-    'Pluto': async () => { 
+    'PLUTO': async () => { 
       openspace.autonavigation.goTo("Pluto");
     },
   }
 };
 
-var autoNavigationButtonGroups = [GoToButtons];
+var GoToNavStateButtons = {
+  title: "Go To Navigation States",
+  buttons: {
+    'TODO': async () => { 
+      openspace.autonavigation.goTo("Earth");
+    },
+    'TODO': async () => { 
+      openspace.autonavigation.goTo("Moon");
+    },
+  }
+};
+
+var autoNavigationButtonGroups = [GoToButtons, GoToNavStateButtons];
