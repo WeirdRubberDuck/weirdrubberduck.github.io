@@ -91,4 +91,4 @@ var GoToNavStateButtons = {
   }
 };
 
-var autoNavigationButtonGroups = [GoToButtons, GoToNavStateButtons];
+var autoNavigationButtonGroups = [AutoNavigationControlButtons, RenderingButtons, GoToButtons, GoToNavStateButtons];
