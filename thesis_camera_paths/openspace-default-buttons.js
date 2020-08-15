@@ -111,11 +111,6 @@ var SystemButtons = {
     'Take Screenshot': () => { 
       openspace.setPropertyValueSingle('RenderEngine.TakeScreenshot', null)
     },
-    '---': () => { 
-    },
-    '!!!---> Toggle Shutdown <---!!!': () => { 
-      openspace.toggleShutdown();
-    },
   }
 };
 var defaultButtonGroups = [TimeButtons, VisualButtons, FrictionButtons, SystemButtons];

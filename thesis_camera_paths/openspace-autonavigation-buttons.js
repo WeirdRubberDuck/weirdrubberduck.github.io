@@ -1,8 +1,14 @@
-var PlanetButtons = {
-  title: "Go To Planets",
+var GoToButtons = {
+  title: "Go To Planets/ Moons",
   buttons: {
     'Earth': async () => { 
       openspace.autonavigation.goTo("Earth");
+    },
+    'Moon': async () => { 
+      openspace.autonavigation.goTo("Moon");
+    },
+    'ISS': async () => { 
+      openspace.autonavigation.goTo("ISS");
     },
     'Mercury': async () => { 
       openspace.autonavigation.goTo("Mercury");
@@ -16,8 +22,26 @@ var PlanetButtons = {
     'Jupiter': async () => { 
       openspace.autonavigation.goTo("Jupiter");
     },
+    'Europa': async () => { 
+      openspace.autonavigation.goTo("Europa");
+    },
+    'Io': async () => { 
+      openspace.autonavigation.goTo("Io");
+    },
+    'Callisto': async () => { 
+      openspace.autonavigation.goTo("Callisto");
+    },
     'Saturn': async () => { 
       openspace.autonavigation.goTo("Saturn");
+    },
+    'Titan': async () => { 
+      openspace.autonavigation.goTo("Titan");
+    },
+    'Rhea': async () => { 
+      openspace.autonavigation.goTo("Rhea");
+    },
+    'Enceladus': async () => { 
+      openspace.autonavigation.goTo("Enceladus");
     },
     'Uranus': async () => { 
       openspace.autonavigation.goTo("Uranus");
@@ -31,25 +55,4 @@ var PlanetButtons = {
   }
 };
 
-var SystemButtons = {
-  title: "System",
-  buttons: {
-    'Toggle Dashboard': async () => { 
-      var isEnabled = await openspace.getPropertyValue('Dashboard.IsEnabled');
-      openspace.setPropertyValueSingle('Dashboard.IsEnabled', !isEnabled[1]);
-      openspace.setPropertyValueSingle("RenderEngine.ShowLog", !isEnabled[1]);
-      openspace.setPropertyValueSingle("RenderEngine.ShowVersion", !isEnabled[1]);
-      openspace.setPropertyValueSingle("RenderEngine.ShowCamera", !isEnabled[1]);
-    },
-    'Toggle Main GUI': async () => { 
-      var isEnabled = await openspace.getPropertyValue('Modules.CefWebGui.Visible');
-      openspace.setPropertyValueSingle('Modules.CefWebGui.Visible', !isEnabled[1]);
-    },
-    '---': () => { 
-    },
-    '!!!---> Toggle Shutdown <---!!!': () => { 
-      openspace.toggleShutdown();
-    },
-  }
-};
-var autoNavigationButtonGroups = [PlanetButtons, SystemButtons];
+var autoNavigationButtonGroups = [GoToButtons];
