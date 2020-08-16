@@ -13,11 +13,48 @@ var AutoNavigationControlButtons = {
 var RenderingButtons = {
   title: "Rendering",
   buttons: {
-    'Render Path': async () => { 
-      // TODO
+    'Clear': async () => { 
+      openspace.autonavigation.removeRenderedPath();
+      openspace.autonavigation.removeControlPoints();
     },
-    'Render Path With Directions': async () => { 
-      // TODO
+    'Render Path': async () => { 
+      openspace.autonavigation.renderPath(200);
+    },
+    'Render With Directions': async () => { 
+      openspace.autonavigation.renderPath(50, false, true);
+    },
+    'Render With Directions (MEDIUM)': async () => { 
+      openspace.autonavigation.renderPath(50, false, true, 40000000);
+    },
+    'Render With Directions (BIG)': async () => { 
+      openspace.autonavigation.renderPath(50, false, true, 5000000000);
+    },
+    'Render With All': async () => { 
+      openspace.autonavigation.renderPath(50, true, true);
+    },
+    'Render With All (BIG)': async () => { 
+      openspace.autonavigation.renderPath(50, true, true, 40000000);
+    },
+    'Render Control Points': async () => { 
+      openspace.autonavigation.renderControlPoints();
+    },
+    'Render Control Points (MEDIUM)': async () => { 
+      openspace.autonavigation.renderControlPoints(20000000);
+    },
+    'Render Control Points (BIG)': async () => { 
+      openspace.autonavigation.renderControlPoints(5000000000);
+    },
+  }
+};
+
+var PredefinedPathsButtons = {
+  title: "Predefined Paths",
+  buttons: {
+    'TODO': async () => { 
+      openspace.autonavigation.goTo("Earth");
+    },
+    'TODO': async () => { 
+      openspace.autonavigation.goTo("Moon");
     },
   }
 };
@@ -32,7 +69,8 @@ var GoToButtons = {
       openspace.autonavigation.goTo("Moon");
     },
     'ISS': async () => { 
-      openspace.autonavigation.goTo("ISS");
+      var spec = {Instructions: [{Type: "Node", Target: "ISS", Height: 150}]};
+      openspace.autonavigation.generatePath(spec);
     },
     'MERCURY': async () => { 
       openspace.autonavigation.goTo("Mercury");
@@ -91,4 +129,4 @@ var GoToNavStateButtons = {
   }
 };
 
-var autoNavigationButtonGroups = [AutoNavigationControlButtons, RenderingButtons, GoToButtons, GoToNavStateButtons];
+var autoNavigationButtonGroups = [AutoNavigationControlButtons, RenderingButtons, PredefinedPathsButtons, GoToButtons, GoToNavStateButtons];
