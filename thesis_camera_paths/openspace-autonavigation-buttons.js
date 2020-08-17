@@ -118,13 +118,40 @@ var GoToButtons = {
 };
 
 var GoToNavStateButtons = {
-  title: "Go To Navigation States",
+  title: "Go To Places / Navigation States",
   buttons: {
-    'TODO': async () => { 
-      openspace.autonavigation.goTo("Earth");
+    'Norrkoping': async () => { 
+      var spec = {Instructions: [{ Type: "Node", Target: "Earth", Position: [3692883.50, 1072065.00, 6296840.00] }]};
+      openspace.autonavigation.generatePath(spec);
     },
-    'TODO': async () => { 
-      openspace.autonavigation.goTo("Moon");
+    'Olympus Mons': async () => { 
+      var spec = {Instructions: [{Type: "Node", Target: "Mars", Position: [-2883015.00, -3006380.25, 1405841.25] }]};
+      openspace.autonavigation.generatePath(spec);
+    },
+    'Olympus Mons (Horizon)': async () => { 
+      var moonSurfaceNavState = {
+        Anchor: "Mars",
+        Pitch: 1.21062433719635,
+        Position: [-2142963.75, -2465656.25, 1244990],
+        ReferenceFrame: "Mars",
+        Up: [-0.6559295654296875, 0.20299135148525238, -0.7270150780677795],
+        Yaw: 0.00008311454439535737
+      }
+      var spec = {Instructions: [{ Type: "NavigationState", NavigationState: moonSurfaceNavState }]};
+      openspace.autonavigation.generatePath(spec);
+    },
+    'Moon Surface (Horizon)': async () => { 
+      // Sun-lit on Aug 17 2020
+      var moonSurfaceNavState = {
+        Anchor: "Moon",
+        Pitch: 0.9760650396347046,
+        Position: [-1686168.5, -544959.125, -737563.875],
+        ReferenceFrame: "Moon",
+        Up: [0.40474796295166016, -0.8696029186248779, -0.28278934955596924],
+        Yaw: -0.04599808156490326
+      }
+      var spec = {Instructions: [{ Type: "NavigationState", NavigationState: moonSurfaceNavState }]};
+      openspace.autonavigation.generatePath(spec);
     },
   }
 };
