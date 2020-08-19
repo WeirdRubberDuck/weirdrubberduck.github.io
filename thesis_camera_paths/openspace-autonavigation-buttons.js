@@ -7,6 +7,9 @@ var StartUpButtons = {
     'Set time (aug 16 2020, 8:00:00)': async () => { 
       openspace.time.setTime("2020-08-16T08:00:00");
     },
+    'Set Orbit Speed': async () => { 
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.AtNodeNavigator.OrbitSpeedFactor", 0.25);
+    },
   }
 };
 
