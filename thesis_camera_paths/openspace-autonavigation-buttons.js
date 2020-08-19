@@ -1,6 +1,9 @@
 var StartUpButtons = {
   title: "Start Up Settings (PRESS AAALL THE BUTTONNS!!!)",
   buttons: {
+    'PAUSE': async () => { 
+      openspace.time.setPause(true);
+    },
     'Set time (aug 16 2020, 8:00:00)': async () => { 
       openspace.time.setTime("2020-08-16T08:00:00");
     },
