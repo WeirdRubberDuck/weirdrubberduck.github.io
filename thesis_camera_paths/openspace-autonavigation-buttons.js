@@ -1,11 +1,28 @@
+var StartUpButtons = {
+  title: "Start Up Settings (PRESS AAALL THE BUTTONNS!!!)",
+  buttons: {
+    'Set time (aug 16 2020, 8:00:00)': async () => { 
+      openspace.time.setTime("2020-08-16T08:00:00");
+    },
+  }
+};
+
 var AutoNavigationControlButtons = {
   title: "AutoNavigation Controls",
   buttons: {
     'Curve Type: Avoid Collision': async () => { 
-      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultCurveOption", 0)
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultCurveOption", 0);
     },
     'Curve Type: ZoomOutOverview': async () => { 
-      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultCurveOption", 3)
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultCurveOption", 3);
+    },
+    'Apply Orbit When Idle': async () => { 
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultStopBehavior", 1);
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.ApplyStopBehaviorWhenIdle", true);
+    },
+    'Stop Orbit': async () => { 
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.DefaultStopBehavior", 0);
+      openspace.setPropertyValueSingle("Modules.AutoNavigation.AutoNavigationHandler.ApplyStopBehaviorWhenIdle", false);
     },
   }
 };
@@ -24,7 +41,7 @@ var RenderingButtons = {
       openspace.autonavigation.renderPath(50, false, true);
     },
     'Render With Directions (MEDIUM)': async () => { 
-      openspace.autonavigation.renderPath(50, false, true, 40000000);
+      openspace.autonavigation.renderPath(50, false, true, 800000000);
     },
     'Render With Directions (BIG)': async () => { 
       openspace.autonavigation.renderPath(50, false, true, 5000000000);
@@ -39,7 +56,7 @@ var RenderingButtons = {
       openspace.autonavigation.renderControlPoints();
     },
     'Render Control Points (MEDIUM)': async () => { 
-      openspace.autonavigation.renderControlPoints(20000000);
+      openspace.autonavigation.renderControlPoints(800000000);
     },
     'Render Control Points (BIG)': async () => { 
       openspace.autonavigation.renderControlPoints(5000000000);
@@ -50,11 +67,89 @@ var RenderingButtons = {
 var PredefinedPathsButtons = {
   title: "Predefined Paths",
   buttons: {
-    'TODO': async () => { 
-      openspace.autonavigation.goTo("Earth");
+    'Planets - ORBIT': async () => { 
+      var spec = { 
+        Instructions: 
+        [
+          { Type: "Node", Target: "Moon", StopDetails: {Behavior: "Orbit"}  },
+          { Type: "Node", Target: "Earth", StopDetails: {Behavior: "Orbit"}  },     
+          { Type: "Node", Target: "Jupiter", StopDetails: {Behavior: "Orbit"}  },  
+          { Type: "Node", Target: "Saturn", StopDetails: {Behavior: "Orbit"}  },  
+          { Type: "Node", Target: "Venus", StopDetails: {Behavior: "Orbit"} },  
+          { Type: "Node", Target: "Earth" }, 
+        ], 
+        StopAtTargets: true
+      }; 
+      openspace.autonavigation.generatePath(spec);
+    },    
+    'Planets - NO STOP': async () => { 
+      var spec = { 
+        Instructions: 
+        [
+          { Type: "Node", Target: "Mercury"},  
+          { Type: "Node", Target: "Earth"  },     
+          { Type: "Node", Target: "Moon"  },
+          { Type: "Node", Target: "Saturn"},  
+          { Type: "Node", Target: "Jupiter"},  
+          { Type: "Node", Target: "Earth" }, 
+        ], 
+        StopAtTargets: false
+      }; 
+      openspace.autonavigation.generatePath(spec);
     },
-    'TODO': async () => { 
-      openspace.autonavigation.goTo("Moon");
+    'Planets - STOP (NO MOVE)': async () => { 
+      var spec = { 
+        Instructions: 
+        [
+          { Type: "Node", Target: "Saturn"  },
+          { Type: "Node", Target: "Mercury"},  
+          { Type: "Node", Target: "Earth"  },     
+          { Type: "Node", Target: "Uranus"},  
+          { Type: "Node", Target: "Io"},  
+          { Type: "Node", Target: "Earth" }, 
+        ], 
+        StopAtTargets: true
+      }; 
+      openspace.autonavigation.generatePath(spec);
+    },
+    'Earth-Moonbackside-Italy-NY': async () => { 
+      var earth_italy = {
+        Anchor: "Earth",
+        Pitch: -0.00024791876785457134,
+        Position: [14672289, 3051870, 11914680],
+        ReferenceFrame: "Earth",
+        Up: [-0.6153947114944458, -0.09583038836717606, 0.7823719382286072],
+        Yaw: -0.0032020355574786663
+      }
+      
+      var earth_NY = {
+        Anchor: "Earth",
+        Pitch: -4.446443213623752e-14,
+        Position: [-1149723.125, -15326986, 11456330],
+        ReferenceFrame: "Earth",
+        Up:  [0.04971231892704964, -0.6003473401069641, -0.7981927990913391],
+        Yaw: -5.649924972317422e-13
+      }
+      
+      var moon_backside = {
+        Anchor: "Moon",
+        Pitch: 6.202149904765974e-11,
+        Position: [-5141444.5, -856711.9375, -160723.03125],
+        ReferenceFrame: "Moon",
+        Up: [-0.10047027468681335, 0.7298203110694885, -0.6762159466743469],
+        Yaw: 1.0380107884344625e-10
+      }
+
+      var spec = { 
+        Instructions: 
+        [
+          { Type: "Node", Target: "Earth", Duration: 24 }, //180 turn
+          { Type: "NavigationState", NavigationState: moon_backside , Duration: 20 }, //other side of target
+          { Type: "NavigationState", NavigationState: earth_italy, Duration: 20 }, 
+          { Type: "NavigationState", NavigationState: earth_NY, Duration: 12 }, 
+        ]               
+      }; 
+      openspace.autonavigation.generatePath(spec);
     },
   }
 };
@@ -93,6 +188,9 @@ var GoToButtons = {
     'Callisto': async () => { 
       openspace.autonavigation.goTo("Callisto");
     },
+    'Ganymede': async () => { 
+      openspace.autonavigation.goTo("Ganymede");
+    },
     'SATURN': async () => { 
       openspace.autonavigation.goTo("Saturn");
     },
@@ -129,7 +227,7 @@ var GoToNavStateButtons = {
       openspace.autonavigation.generatePath(spec);
     },
     'Olympus Mons (Horizon)': async () => { 
-      var moonSurfaceNavState = {
+      var navState = {
         Anchor: "Mars",
         Pitch: 1.21062433719635,
         Position: [-2142963.75, -2465656.25, 1244990],
@@ -137,7 +235,7 @@ var GoToNavStateButtons = {
         Up: [-0.6559295654296875, 0.20299135148525238, -0.7270150780677795],
         Yaw: 0.00008311454439535737
       }
-      var spec = {Instructions: [{ Type: "NavigationState", NavigationState: moonSurfaceNavState }]};
+      var spec = {Instructions: [{ Type: "NavigationState", NavigationState: navState }]};
       openspace.autonavigation.generatePath(spec);
     },
     'Moon Surface (Horizon)': async () => { 
@@ -153,7 +251,20 @@ var GoToNavStateButtons = {
       var spec = {Instructions: [{ Type: "NavigationState", NavigationState: moonSurfaceNavState }]};
       openspace.autonavigation.generatePath(spec);
     },
+    'A view of Jupiter': async () => { 
+      // Sun-lit on Aug 17 2020
+      var navState = {
+        Anchor:"Jupiter",
+        Pitch:-0.919457E-3,
+        Position:[-1.298352E9,-4.416869E8,5.142781E8],
+        ReferenceFrame:"Root",
+        Up:[-0.212983E0,0.939293E0,0.269010E0],
+        Yaw:-0.280538E-3
+    }
+      var spec = {Instructions: [{ Type: "NavigationState", NavigationState: navState }]};
+      openspace.autonavigation.generatePath(spec);
+    },
   }
 };
 
-var autoNavigationButtonGroups = [AutoNavigationControlButtons, RenderingButtons, PredefinedPathsButtons, GoToButtons, GoToNavStateButtons];
+var autoNavigationButtonGroups = [StartUpButtons, AutoNavigationControlButtons, RenderingButtons, PredefinedPathsButtons, GoToButtons, GoToNavStateButtons];
