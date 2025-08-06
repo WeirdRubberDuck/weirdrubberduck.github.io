@@ -1,12 +1,9 @@
 import {
   ActionIcon,
-  Box,
-  Card,
   Container,
   Group,
   Paper,
   Text,
-  Title,
   Tooltip,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
