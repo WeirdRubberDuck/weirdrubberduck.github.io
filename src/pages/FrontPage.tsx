@@ -1,13 +1,24 @@
-import { ActionIcon, Container, Group, Paper, Text } from "@mantine/core";
+import {
+  ActionIcon,
+  Box,
+  Card,
+  Container,
+  Group,
+  Paper,
+  Text,
+  Title,
+  Tooltip,
+} from "@mantine/core";
 import "@mantine/core/styles.css";
 import { FaGithub, FaLinkedin, FaOrcid } from "react-icons/fa";
 import { IconSize } from "../util/enums";
+import { FaGoogleScholar } from "react-icons/fa6";
 
 export function FrontPage() {
   return (
     <Container p={"md"}>
-      <Group align="flex-start" gap={"md"}>
-        <Paper p="md" flex={3}>
+      <Group align="flex-start" gap={"xl"}>
+        <Paper p="md" flex={2}>
           <Text mb={"sm"}>Hi, I'm Emma.</Text>
           <Text mb={"sm"}>
             I'm a PhD student and research engineer in the{" "}
@@ -23,42 +34,73 @@ export function FrontPage() {
             are some links for now. Feel free to connect!
           </Text>
         </Paper>
-        <Paper p="md" flex={2}>
+
+        <Paper p="md" flex={1}>
           <Text mb={"sm"}>About me</Text>
           <Text c={"dimmed"}>PhD Student and Research Engineer</Text>
           <Text c={"dimmed"}>Linköping University</Text>
 
           <Group mt="md" gap={"xs"}>
-            <ActionIcon variant="subtle">
-              <FaLinkedin
-                size={IconSize.sm}
+            <Tooltip label="LinkedIn">
+              <ActionIcon variant="subtle">
+                <FaLinkedin
+                  size={IconSize.sm}
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/emmamariebroman/",
+                      "_blank"
+                    )
+                  }
+                />
+              </ActionIcon>
+            </Tooltip>
+
+            <Tooltip label="Github">
+              <ActionIcon
+                variant="subtle"
+                onClick={() =>
+                  window.open("https://github.com/WeirdRubberDuck", "_blank")
+                }
+              >
+                <FaGithub size={IconSize.sm} />
+              </ActionIcon>
+            </Tooltip>
+
+            <Tooltip label="Google Scholar">
+              <ActionIcon
+                variant="subtle"
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/in/emmamariebroman/",
+                    "https://scholar.google.com/citations?user=yOk0rWoAAAAJ&hl=sv",
                     "_blank"
                   )
                 }
-              />
-            </ActionIcon>
-            <ActionIcon
-              variant="subtle"
-              onClick={() =>
-                window.open("https://github.com/WeirdRubberDuck", "_blank")
-              }
-            >
-              <FaGithub size={IconSize.sm} />
-            </ActionIcon>
-            <ActionIcon
-              variant="subtle"
-              onClick={() =>
-                window.open("https://orcid.org/0009-0006-0072-5134", "_blank")
-              }
-            >
-              <FaOrcid size={IconSize.sm} />
-            </ActionIcon>
+              >
+                <FaGoogleScholar size={IconSize.sm} />
+              </ActionIcon>
+            </Tooltip>
+
+            <Tooltip label="ORCID">
+              <ActionIcon
+                variant="subtle"
+                onClick={() =>
+                  window.open("https://orcid.org/0009-0006-0072-5134", "_blank")
+                }
+              >
+                <FaOrcid size={IconSize.sm} />
+              </ActionIcon>
+            </Tooltip>
           </Group>
         </Paper>
       </Group>
+      {/* <Title order={2} mt={"lg"}>
+        Research Interests
+      </Title>
+      ...
+      <Title order={2} mt={"lg"}>
+        Publications
+      </Title>
+      ... */}
     </Container>
   );
 }

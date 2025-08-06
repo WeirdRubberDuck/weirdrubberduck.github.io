@@ -8,6 +8,7 @@ import {
   MantineProvider,
   NavLink,
   Text,
+  Tooltip,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { FrontPage } from "./pages/FrontPage";
@@ -16,6 +17,15 @@ const theme = createTheme({
   fontFamily: "'Afacad Flux',  sans-serif",
   headings: {
     fontFamily: "'Arial', sans-serif",
+  },
+  components: {
+    Tooltip: Tooltip.extend({
+      defaultProps: {
+        withArrow: true,
+        transitionProps: { duration: 400, enterDelay: 400 },
+        position: "top",
+      },
+    }),
   },
 });
 
