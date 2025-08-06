@@ -15,7 +15,7 @@ export function FrontPage() {
   return (
     <Container p={"md"}>
       <Group align="flex-start" gap={"xl"}>
-        <Paper p="md" flex={2}>
+        <Paper p="md" flex={2} miw={250}>
           <Text mb={"sm"}>Hi, I'm Emma.</Text>
           <Text mb={"sm"}>
             I'm a PhD student and research engineer in the{" "}
@@ -32,7 +32,7 @@ export function FrontPage() {
           </Text>
         </Paper>
 
-        <Paper p="md" flex={1}>
+        <Paper p="md" flex={1} miw={200}>
           <Text mb={"sm"}>About me</Text>
           <Text c={"dimmed"}>PhD Student and Research Engineer</Text>
           <Text c={"dimmed"}>Linköping University</Text>
