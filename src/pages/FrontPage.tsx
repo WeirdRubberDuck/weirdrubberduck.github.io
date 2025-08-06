@@ -7,7 +7,7 @@ import {
   Tooltip,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { FaGithub, FaLinkedin, FaOrcid } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaOrcid } from "react-icons/fa";
 import { IconSize } from "../util/enums";
 import { FaGoogleScholar } from "react-icons/fa6";
 
@@ -85,6 +85,17 @@ export function FrontPage() {
                 }
               >
                 <FaOrcid size={IconSize.sm} />
+              </ActionIcon>
+            </Tooltip>
+
+            <Tooltip label="Email">
+              <ActionIcon
+                variant="subtle"
+                onClick={() =>
+                  window.open("mailto:emma.broman@liu.se", "_blank")
+                }
+              >
+                <FaEnvelope size={IconSize.sm} />
               </ActionIcon>
             </Tooltip>
           </Group>
