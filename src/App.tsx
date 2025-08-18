@@ -15,7 +15,7 @@ import {
 import "@mantine/core/styles.css";
 import { FrontPage } from "./pages/FrontPage";
 import { useDisclosure } from "@mantine/hooks";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { PublicationsPage } from "@pages/publications/PublicationsPage";
 
 const theme = createTheme({
@@ -83,12 +83,10 @@ export function App() {
           </Flex>
         </AppShell.Header>
         <AppShell.Main bg="background">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<FrontPage />} />
-              <Route path="/publications" element={<PublicationsPage />} />
-            </Routes>
-          </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<FrontPage />} />
+            <Route path="/publications" element={<PublicationsPage />} />
+          </Routes>
         </AppShell.Main>
       </AppShell>
     </MantineProvider>
