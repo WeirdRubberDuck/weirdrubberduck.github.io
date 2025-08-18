@@ -13,10 +13,8 @@ import {
   Tooltip,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { FrontPage } from "./pages/FrontPage";
 import { useDisclosure } from "@mantine/hooks";
-import { Route, Routes } from "react-router";
-import { PublicationsPage } from "@pages/publications/PublicationsPage";
+import { Outlet } from "react-router";
 
 const theme = createTheme({
   fontFamily: "'Afacad Flux',  sans-serif",
@@ -93,10 +91,7 @@ export function App() {
           </Flex>
         </AppShell.Header>
         <AppShell.Main bg="background">
-          <Routes>
-            <Route path="/" element={<FrontPage />} />
-            <Route path="/publications" element={<PublicationsPage />} />
-          </Routes>
+          <Outlet />
         </AppShell.Main>
       </AppShell>
     </MantineProvider>
