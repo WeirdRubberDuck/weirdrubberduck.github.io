@@ -6,9 +6,9 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
-import "@mantine/core/styles.css";
+
 import { FaEnvelope, FaGithub, FaLinkedin, FaOrcid } from "react-icons/fa";
-import { IconSize } from "../util/enums";
+import { IconSize } from "@util/enums";
 import { FaGoogleScholar } from "react-icons/fa6";
 
 export function FrontPage() {

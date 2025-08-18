@@ -1,0 +1,22 @@
+{
+  "title": "ExoplanetExplorer: Contextual Visualization of Exoplanet Systems",
+  "authors": [
+    "Emma Broman",
+    "Jacqueline Faherty",
+    "Laura Kreidberg",
+    "Sebastian Zieba",
+    "Charles Hansen",
+    "Anders Ynnerman",
+    "Alexander Bock"
+  ],
+  "venue": "IEEE Visualization and Visual Analytics (VIS)",
+  "type": "Short Paper",
+  "year": 2023,
+  "date": "2023-10",
+  "doi": "10.1109/VIS54172.2023.00025",
+  "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10360923",
+  "bib": "/public/content/publications/2023_broman_faherty_exoplanetexplorer.bib",
+  "thumbnail": "/public/content/publications/2023_broman_faherty_exoplanetexplorer.png",
+  "code": "https://github.com/OpenSpace/OpenSpace/tree/project/exoplanet-explorer",
+  "web": "https://immvis.github.io/projects/exoplanet_explorer/"
+}

@@ -15,6 +15,8 @@ import {
 import "@mantine/core/styles.css";
 import { FrontPage } from "./pages/FrontPage";
 import { useDisclosure } from "@mantine/hooks";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { PublicationsPage } from "@pages/publications/PublicationsPage";
 
 const theme = createTheme({
   fontFamily: "'Afacad Flux',  sans-serif",
@@ -54,10 +56,10 @@ export function App() {
             <Center flex={3} visibleFrom="xs">
               <Group>
                 <Box>
-                  <NavLink label="Bio" />
+                  <NavLink label="Bio" href="/" />
                 </Box>
                 <Box>
-                  <NavLink label="Publications" />
+                  <NavLink label="Publications" href="/publications" />
                 </Box>
               </Group>
             </Center>
@@ -81,7 +83,12 @@ export function App() {
           </Flex>
         </AppShell.Header>
         <AppShell.Main bg="background">
-          <FrontPage />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<FrontPage />} />
+              <Route path="/publications" element={<PublicationsPage />} />
+            </Routes>
+          </BrowserRouter>
         </AppShell.Main>
       </AppShell>
     </MantineProvider>
