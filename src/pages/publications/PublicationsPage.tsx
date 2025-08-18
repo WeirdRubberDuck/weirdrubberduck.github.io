@@ -3,10 +3,9 @@ import { Publication } from "./Publication";
 import { usePublications } from "./hooks";
 
 export function PublicationsPage() {
-  const { publications, loading, error } = usePublications();
+  const { publications, error } = usePublications();
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <Container p={"md"}>Error: {error.message}</Container>;
 
   console.log(publications);
 
