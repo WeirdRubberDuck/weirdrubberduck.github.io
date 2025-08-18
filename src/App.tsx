@@ -15,7 +15,7 @@ import {
 import "@mantine/core/styles.css";
 import { FrontPage } from "./pages/FrontPage";
 import { useDisclosure } from "@mantine/hooks";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router";
 import { PublicationsPage } from "@pages/publications/PublicationsPage";
 
 const theme = createTheme({
