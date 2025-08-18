@@ -56,10 +56,20 @@ export function App() {
             <Center flex={3} visibleFrom="xs">
               <Group>
                 <Box>
-                  <NavLink label="Bio" href="/" />
+                  <NavLink
+                    label="Bio"
+                    href="/"
+                    variant="subtle"
+                    active={window.location.pathname === "/"}
+                  />
                 </Box>
                 <Box>
-                  <NavLink label="Publications" href="/publications" />
+                  <NavLink
+                    label="Publications"
+                    href="/publications"
+                    variant="subtle"
+                    active={window.location.pathname === "/publications"}
+                  />
                 </Box>
               </Group>
             </Center>
