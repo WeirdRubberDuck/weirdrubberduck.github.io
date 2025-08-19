@@ -6,9 +6,14 @@ import {
   Title,
   AspectRatio,
   Text,
+  Anchor,
+  Flex,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { IconSize } from "@util/enums";
 import type { PublicationData } from "@util/types";
+import { FaCode, FaRegFilePdf } from "react-icons/fa";
+import { SiDoi } from "react-icons/si";
 import { Fragment } from "react/jsx-runtime";
 
 export function Publication({ data }: { data: PublicationData }) {
@@ -47,21 +52,36 @@ export function Publication({ data }: { data: PublicationData }) {
           </Text>
           <Text c="dimmed">{data.venue}</Text>
           <Group justify="space-between">
-            <Group>
+            <Group gap={"xs"}>
               {data.pdf && (
-                <a href={data.pdf} target="_blank">
-                  PDF
-                </a>
+                <Anchor href={data.doi} target="_blank">
+                  <Flex align={"center"} gap={4}>
+                    <FaRegFilePdf size={IconSize.xs} />
+                    PDF
+                  </Flex>
+                </Anchor>
               )}
+
               {data.bib && (
-                <a href={data.bib} target="_blank">
+                <Anchor href={data.bib} target="_blank" download>
                   BibTeX
-                </a>
+                </Anchor>
               )}
               {data.code && (
-                <a href={data.code} target="_blank">
-                  Code
-                </a>
+                <Anchor href={data.code} target="_blank">
+                  <Flex align={"center"} gap={4}>
+                    <FaCode size={IconSize.xs} />
+                    Code
+                  </Flex>{" "}
+                </Anchor>
+              )}
+              {data.doi && (
+                <Anchor href={data.doi} target="_blank">
+                  <Flex align={"center"} gap={4}>
+                    <SiDoi size={IconSize.xs} />
+                    DOI
+                  </Flex>
+                </Anchor>
               )}
             </Group>
             <Text>{data.type}</Text>
