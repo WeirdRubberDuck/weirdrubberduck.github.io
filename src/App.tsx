@@ -10,6 +10,7 @@ import {
   MantineProvider,
   Menu,
   NavLink,
+  Stack,
   Text,
   Tooltip,
 } from "@mantine/core";
@@ -17,6 +18,7 @@ import "@mantine/core/styles.css";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router";
 import { lastUpdateDate } from "./update-date";
+import { ContactLinks } from "@components/ContactLinks";
 
 const theme = createTheme({
   fontFamily: "'Afacad Flux',  sans-serif",
@@ -100,15 +102,18 @@ export function App() {
           <Outlet />
         </AppShell.Main>
         <AppShell.Footer withBorder={false}>
-          <Center>
-            <Group justify="center">
-              <Text size="xs" c={"dimmed"}>
-                © Emma Broman
-              </Text>
-              <Text size="xs" c={"dimmed"}>
-                Last updated: {lastUpdateDate}
-              </Text>
-            </Group>
+          <Center py={"xs"}>
+            <Stack gap={4}>
+              <Group justify="center">
+                <Text size="xs" c={"dimmed"}>
+                  © Emma Broman
+                </Text>
+                <ContactLinks />
+                <Text size="xs" c={"dimmed"}>
+                  Last updated: {lastUpdateDate}
+                </Text>
+              </Group>
+            </Stack>
           </Center>
         </AppShell.Footer>
       </AppShell>
