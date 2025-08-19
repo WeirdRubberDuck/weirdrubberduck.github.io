@@ -1,4 +1,4 @@
-import { Accordion, Container, Title } from "@mantine/core";
+import { Accordion, Container, Divider, Title } from "@mantine/core";
 import { Publication } from "./Publication";
 import { usePublications } from "./hooks";
 
@@ -17,10 +17,13 @@ export function PublicationsPage() {
           .sort((a, b) => b.year - a.year)
           .map((pub) => (
             <Accordion.Item key={pub.title} value={pub.title}>
-              <Accordion.Control>
+              <Accordion.Control aria-label={pub.title}>
                 <Publication data={pub} />
               </Accordion.Control>
-              <Accordion.Panel>{pub.abstract}</Accordion.Panel>
+              <Accordion.Panel>
+                <Divider mb={"xs"} />
+                {pub.abstract}
+              </Accordion.Panel>
             </Accordion.Item>
           ))}
       </Accordion>
