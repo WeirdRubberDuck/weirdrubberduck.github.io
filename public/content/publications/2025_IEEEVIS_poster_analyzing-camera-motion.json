@@ -11,10 +11,7 @@
   "type": "Poster",
   "year": 2025,
   "date": "2025-08",
-  "doi": "",
+  "video": "https://www.youtube.com/watch?v=o_8pXLtE01k",
   "pdf": "/content/publications/2025_IEEEVIS_poster_analyzing-camera-motion.pdf",
-  "bib": "",
-  "thumbnail": "",
-  "image": "",
-  "code": ""
+  "poster": "/content/publications/2025_IEEEVIS_poster_analyzing-camera-motion.poster.pdf"
 }
