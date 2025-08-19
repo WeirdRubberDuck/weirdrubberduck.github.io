@@ -54,7 +54,7 @@ export function App() {
   return (
     <MantineProvider theme={theme} defaultColorScheme="dark">
       <AppShell header={{ height: 60 }} padding="md">
-        <AppShell.Header p="xs">
+        <AppShell.Header p="xs" withBorder={false}>
           <Flex align={"center"}>
             <Flex flex={1} miw={130} align="center">
               <Text
@@ -97,7 +97,7 @@ export function App() {
         <AppShell.Main bg="background">
           <Outlet />
         </AppShell.Main>
-        <AppShell.Footer>
+        <AppShell.Footer withBorder={false}>
           <Center>
             <Group justify="center">
               <Text size="xs" c={"dimmed"}>
