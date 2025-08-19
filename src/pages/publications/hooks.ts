@@ -8,13 +8,17 @@ export function usePublications() {
 
   useEffect(() => {
     async function fetchPublications() {
-      const files = import.meta.glob("/public/content/publications/*.json");
-      const publicationPromises = Object.values(files).map(async (load) => {
-        const mod = await load();
-        return (mod as { default: PublicationData }).default;
+      // @TODO (2025-08-19) Eventually fix warning:
+      // "Assets in public directory cannot be imported from JavaScript."
+      // but for now it seems to work just fine
+      const records = import.meta.glob("/public/content/publications/*.json", {
+        eager: true, // Import all matching files directly
+        import: "default",
       });
-      const publications: PublicationData[] =
-        await Promise.all(publicationPromises);
+
+      const publications: PublicationData[] = Object.values(records).map(
+        (record) => record as PublicationData
+      );
 
       try {
         setPublications(publications);
