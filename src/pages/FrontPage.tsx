@@ -13,7 +13,7 @@ export function FrontPage() {
               immersive visualization unit
             </Anchor>{" "}
             at Linköping University, Sweden. A large portion of my work goes
-            into the developent of the{" "}
+            into the development of the{" "}
             <Anchor href="https://www.openspaceproject.com/">
               OpenSpace software
             </Anchor>
