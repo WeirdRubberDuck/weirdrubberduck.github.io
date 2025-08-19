@@ -1,4 +1,5 @@
 import {
+  Anchor,
   AppShell,
   Box,
   Burger,
@@ -57,14 +58,15 @@ export function App() {
         <AppShell.Header p="xs" withBorder={false}>
           <Flex align={"center"}>
             <Flex flex={1} miw={130} align="center">
-              <Text
+              <Anchor
+                href="/"
+                c={"green.3"}
                 size="md"
                 fw={500}
-                c={"green.3"}
                 style={{ fontFamily: "Verdana" }}
               >
                 Emma Broman
-              </Text>
+              </Anchor>
             </Flex>
 
             <Center flex={3} visibleFrom="xs">
