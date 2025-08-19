@@ -9,6 +9,7 @@
     "Anders Ynnerman",
     "Alexander Bock"
   ],
+  "abstract": "An exoplanet is a planet outside of our solar system. Researchers study known exoplanets and gather data about them through observations and derived data. Ongoing efforts involve finding planets with an environment that supports life, which likely exists in what is known as the habitable zone around a star. Through a participatory design process, we developed a tool that enables the exploration of exoplanet attribute data and provides contextual visual information in a 3D spatial view that seamlessly presents an overview and a system view showing particular exoplanet systems.",
   "venue": "IEEE Visualization and Visual Analytics (VIS)",
   "type": "Short Paper",
   "year": 2023,

@@ -6,6 +6,7 @@
     "Anders Ynnerman",
     "Alexander Bock"
   ],
+  "abstract": "This work presents early results for an ongoing project on analyzing optic flow to quantify motion effects in movies for immersive digital dome theaters and planetariums. Measuring optic flow and mapping flow peaks to moments of high motion indicates the overall sense of flow in a movie, thus supporting filmmakers in both designing and evaluating dome-specific content. Initial feedback from producers suggests that the measurements have strong practical value and a key next step is to design a visualization tool to facilitate a detailed analysis of the collected data.",
   "venue": "IEEE VIS Poster Session",
   "type": "Poster",
   "year": 2025,
