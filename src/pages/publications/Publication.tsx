@@ -17,7 +17,7 @@ export function Publication({ data }: { data: PublicationData }) {
   return (
     <Card p={"md"}>
       <Group wrap="nowrap" align="top">
-        <AspectRatio ratio={3 / 2} w={200}>
+        <AspectRatio ratio={3 / 2} w={200} visibleFrom="sm">
           <Image
             src={data.thumbnail}
             alt="Publication Image"
@@ -25,9 +25,12 @@ export function Publication({ data }: { data: PublicationData }) {
           />
         </AspectRatio>
         <Stack flex={1}>
-          <Title order={3} size={"md"}>
-            {data.title}
-          </Title>
+          <Group justify="space-between" align="top">
+            <Title order={3} flex={1} size={"md"}>
+              {data.title}
+            </Title>
+            <Text>{data.year}</Text>
+          </Group>
           <Text>
             {data.authors.map((author, idx) => (
               <Fragment key={author + idx}>
@@ -43,27 +46,26 @@ export function Publication({ data }: { data: PublicationData }) {
             ))}
           </Text>
           <Text c="dimmed">{data.venue}</Text>
-          <Group>
-            {data.pdf && (
-              <a href={data.pdf} target="_blank">
-                PDF
-              </a>
-            )}
-            {data.bib && (
-              <a href={data.bib} target="_blank">
-                BibTeX
-              </a>
-            )}
-            {data.code && (
-              <a href={data.code} target="_blank">
-                Code
-              </a>
-            )}
+          <Group justify="space-between">
+            <Group>
+              {data.pdf && (
+                <a href={data.pdf} target="_blank">
+                  PDF
+                </a>
+              )}
+              {data.bib && (
+                <a href={data.bib} target="_blank">
+                  BibTeX
+                </a>
+              )}
+              {data.code && (
+                <a href={data.code} target="_blank">
+                  Code
+                </a>
+              )}
+            </Group>
+            <Text>{data.type}</Text>
           </Group>
-        </Stack>
-        <Stack align="end" justify="space-between">
-          <Text>{data.year}</Text>
-          <Text>{data.type}</Text>
         </Stack>
       </Group>
     </Card>
