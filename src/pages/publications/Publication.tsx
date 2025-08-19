@@ -12,26 +12,24 @@ import {
 import "@mantine/core/styles.css";
 import { IconSize } from "@util/enums";
 import type { PublicationData } from "@util/types";
-import { FaCode, FaRegFilePdf } from "react-icons/fa";
+import { FaCloud, FaCode, FaRegFilePdf } from "react-icons/fa";
 import { SiDoi } from "react-icons/si";
 import { Fragment } from "react/jsx-runtime";
 
 export function Publication({ data }: { data: PublicationData }) {
-  console.log(data);
-
   return (
-    <Card p={"md"}>
+    <Card p={"md"} shadow="sm">
       <Group wrap="nowrap" align="top">
         <AspectRatio ratio={3 / 2} w={200} visibleFrom="sm">
           <Image
             src={data.thumbnail}
             alt="Publication Image"
-            fallbackSrc="https://placehold.co/600x400?text=Placeholder"
+            fallbackSrc={`https://placehold.co/600x400?text=${data.type}`}
           />
         </AspectRatio>
-        <Stack flex={1}>
+        <Stack flex={1} gap={"xs"}>
           <Group justify="space-between" align="top">
-            <Title order={3} flex={1} size={"md"}>
+            <Title order={3} flex={1} size={"lg"}>
               {data.title}
             </Title>
             <Text>{data.year}</Text>
@@ -39,19 +37,15 @@ export function Publication({ data }: { data: PublicationData }) {
           <Text>
             {data.authors.map((author, idx) => (
               <Fragment key={author + idx}>
-                {author === "Emma Broman" ? (
-                  <Text span>{author}</Text>
-                ) : (
-                  <Text span c={"dimmed"}>
-                    {author}
-                  </Text>
-                )}
+                <Text span fw={author === "Emma Broman" ? 700 : undefined}>
+                  {author}
+                </Text>
                 {idx < data.authors.length - 1 && ", "}
               </Fragment>
             ))}
           </Text>
           <Text c="dimmed">{data.venue}</Text>
-          <Group justify="space-between">
+          <Group justify="space-between" wrap="nowrap" align="end">
             <Group gap={"xs"}>
               {data.pdf && (
                 <Anchor href={data.doi} target="_blank">
@@ -83,8 +77,16 @@ export function Publication({ data }: { data: PublicationData }) {
                   </Flex>
                 </Anchor>
               )}
+              {data.website && (
+                <Anchor href={data.website} target="_blank">
+                  <Flex align={"center"} gap={4}>
+                    <FaCloud size={IconSize.xs} />
+                    Web
+                  </Flex>
+                </Anchor>
+              )}
             </Group>
-            <Text>{data.type}</Text>
+            <Text style={{ whiteSpace: "nowrap" }}>{data.type}</Text>
           </Group>
         </Stack>
       </Group>
