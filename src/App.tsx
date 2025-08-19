@@ -23,7 +23,8 @@ import { ContactLinks } from "@components/ContactLinks";
 const theme = createTheme({
   fontFamily: "'Afacad Flux',  sans-serif",
   headings: {
-    fontFamily: "'Arial', sans-serif",
+    fontFamily: "'Work Sans', sans-serif",
+    fontWeight: "600",
   },
   components: {
     Tooltip: Tooltip.extend({
@@ -33,6 +34,12 @@ const theme = createTheme({
         position: "top",
       },
     }),
+    NavLink: NavLink.extend({
+      defaultProps: {
+        variant: "subtle",
+        style: { fontFamily: "'Work Sans', sans-serif" },
+      },
+    }),
   },
 });
 
@@ -40,16 +47,10 @@ export function App() {
   const [opened, { toggle }] = useDisclosure();
 
   const links = [
-    <NavLink
-      label="Bio"
-      href="/"
-      variant="subtle"
-      active={window.location.pathname === "/"}
-    />,
+    <NavLink label="Bio" href="/" active={window.location.pathname === "/"} />,
     <NavLink
       label="Publications"
       href="/publications"
-      variant="subtle"
       active={window.location.pathname === "/publications"}
     />,
   ];
@@ -62,10 +63,13 @@ export function App() {
             <Flex flex={1} miw={130} align="center">
               <Anchor
                 href="/"
-                c={"green.3"}
-                size="md"
-                fw={500}
-                style={{ fontFamily: "Verdana" }}
+                c="green.1"
+                size="xl"
+                style={{
+                  fontFamily: "'Permanent Marker', cursive",
+                  textWrap: "nowrap",
+                }}
+                underline="never"
               >
                 Emma Broman
               </Anchor>
