@@ -101,14 +101,6 @@ export function FrontPage() {
           </Group>
         </Paper>
       </Group>
-      {/* <Title order={2} mt={"lg"}>
-        Research Interests
-      </Title>
-      ...
-      <Title order={2} mt={"lg"}>
-        Publications
-      </Title>
-      ... */}
     </Container>
   );
 }
