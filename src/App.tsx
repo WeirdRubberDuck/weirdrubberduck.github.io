@@ -38,6 +38,7 @@ const theme = createTheme({
       defaultProps: {
         variant: "subtle",
         style: { fontFamily: "'Work Sans', sans-serif" },
+        bdrs: "sm",
       },
     }),
   },
@@ -47,12 +48,11 @@ export function App() {
   const [opened, { toggle }] = useDisclosure();
 
   const links = [
-    <NavLink label="Bio" href="/" active={window.location.pathname === "/"} />,
-    <NavLink
-      label="Publications"
-      href="/publications"
-      active={window.location.pathname === "/publications"}
-    />,
+    { label: "Bio", href: "/" },
+    {
+      label: "Publications",
+      href: "/publications",
+    },
   ];
 
   return (
@@ -78,7 +78,13 @@ export function App() {
             <Center flex={3} visibleFrom="xs">
               <Group>
                 {links.map((link, index) => (
-                  <Box key={index}>{link}</Box>
+                  <Box key={index}>
+                    <NavLink
+                      label={link.label}
+                      href={link.href}
+                      active={window.location.pathname === link.href}
+                    />
+                  </Box>
                 ))}
               </Group>
             </Center>
@@ -95,7 +101,18 @@ export function App() {
                 </Menu.Target>
                 <Menu.Dropdown>
                   {links.map((link, index) => (
-                    <Menu.Item key={index}>{link}</Menu.Item>
+                    <Menu.Item
+                      key={index}
+                      component="a"
+                      href={link.href}
+                      c={
+                        window.location.pathname === link.href
+                          ? "blue.4" // @TODO Use primary color instead
+                          : undefined
+                      }
+                    >
+                      {link.label}
+                    </Menu.Item>
                   ))}
                 </Menu.Dropdown>
               </Menu>
