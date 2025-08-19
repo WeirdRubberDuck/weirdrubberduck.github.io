@@ -10,7 +10,6 @@ import {
   MantineProvider,
   Menu,
   NavLink,
-  Stack,
   Text,
   Tooltip,
 } from "@mantine/core";
