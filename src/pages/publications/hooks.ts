@@ -13,11 +13,8 @@ export function usePublications() {
         const mod = await load();
         return (mod as { default: PublicationData }).default;
       });
-      const publications: PublicationData[] = await Promise.all(
-        publicationPromises
-      );
-
-      console.log(publications);
+      const publications: PublicationData[] =
+        await Promise.all(publicationPromises);
 
       try {
         setPublications(publications);

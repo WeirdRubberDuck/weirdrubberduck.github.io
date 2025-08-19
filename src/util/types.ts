@@ -4,6 +4,7 @@ export interface PublicationData {
   venue: string;
   type: "Paper" | "Short Paper" | "Poster" | "Review Paper" | "Abstract";
   year: number;
+  abstract: string;
   date: string; // ISO date string
   pdf: string; // Link to pdf
   doi?: string; // DOI link

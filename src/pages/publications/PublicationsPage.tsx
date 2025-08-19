@@ -1,4 +1,4 @@
-import { Container, Stack, Title } from "@mantine/core";
+import { Accordion, Container, Title } from "@mantine/core";
 import { Publication } from "./Publication";
 import { usePublications } from "./hooks";
 
@@ -7,20 +7,23 @@ export function PublicationsPage() {
 
   if (error) return <Container p={"md"}>Error: {error.message}</Container>;
 
-  console.log(publications);
-
   return (
     <Container p={"md"}>
       <Title order={2} my={"lg"}>
         Publications
       </Title>
-      <Stack>
+      <Accordion variant="separated" chevron={<></>}>
         {publications
           .sort((a, b) => b.year - a.year)
           .map((pub) => (
-            <Publication key={pub.title} data={pub} />
+            <Accordion.Item key={pub.title} value={pub.title}>
+              <Accordion.Control>
+                <Publication data={pub} />
+              </Accordion.Control>
+              <Accordion.Panel>{pub.abstract}</Accordion.Panel>
+            </Accordion.Item>
           ))}
-      </Stack>
+      </Accordion>
     </Container>
   );
 }
