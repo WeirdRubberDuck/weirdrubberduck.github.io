@@ -15,6 +15,7 @@ import {
 import "@mantine/core/styles.css";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router";
+import { lastUpdateDate } from "./update-date";
 
 const theme = createTheme({
   fontFamily: "'Afacad Flux',  sans-serif",
@@ -96,6 +97,18 @@ export function App() {
         <AppShell.Main bg="background">
           <Outlet />
         </AppShell.Main>
+        <AppShell.Footer>
+          <Center>
+            <Group justify="center">
+              <Text size="xs" c={"dimmed"}>
+                © Emma Broman
+              </Text>
+              <Text size="xs" c={"dimmed"}>
+                Last updated: {lastUpdateDate}
+              </Text>
+            </Group>
+          </Center>
+        </AppShell.Footer>
       </AppShell>
     </MantineProvider>
   );
