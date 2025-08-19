@@ -1,5 +1,6 @@
 import {
   ActionIcon,
+  Anchor,
   Container,
   Group,
   Paper,
@@ -14,21 +15,24 @@ import { FaGoogleScholar } from "react-icons/fa6";
 export function FrontPage() {
   return (
     <Container p={"md"}>
-      <Group align="flex-start" gap={"xl"}>
+      <Group align="flex-start" gap={"lg"}>
         <Paper p="md" flex={2} miw={250}>
           <Text mb={"sm"}>Hi, I'm Emma.</Text>
           <Text mb={"sm"}>
             I'm a PhD student and research engineer in the{" "}
-            <a href="https://www.liu.se/en/research/immersive-visualization">
+            <Anchor href="https://www.liu.se/en/research/immersive-visualization">
               immersive visualization unit
-            </a>{" "}
+            </Anchor>{" "}
             at Linköping University, Sweden. A large portion of my work goes
             into the developent of the{" "}
-            <a href="https://www.openspaceproject.com/">OpenSpace software</a>.
+            <Anchor href="https://www.openspaceproject.com/">
+              OpenSpace software
+            </Anchor>
+            .
           </Text>
           <Text>
-            This page is a work in progress and is not yet functional, but here
-            are some links for now. Feel free to connect!
+            My research focuses on visualization for digital domes,
+            planetariums, and astronomy applications. Feel free to connect!
           </Text>
         </Paper>
 
