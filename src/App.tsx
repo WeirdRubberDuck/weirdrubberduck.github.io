@@ -119,22 +119,31 @@ export function App() {
             </Flex>
           </Flex>
         </AppShell.Header>
-        <AppShell.Main bg="background">
+
+        {/* Extra padding and margin to account for footer */}
+        <AppShell.Main bg="background" pb={"xl"} mb={"xl"}>
           <Outlet />
+          <Group justify="center" wrap="nowrap" mt={"md"} hiddenFrom="xs">
+            <Text size="xs" c={"dimmed"}>
+              © Emma Broman
+            </Text>
+            <Text size="xs" c={"dimmed"}>
+              Last updated: {lastUpdateDate}
+            </Text>
+          </Group>
         </AppShell.Main>
+
         <AppShell.Footer withBorder={false}>
           <Center py={"xs"}>
-            <Stack gap={4}>
-              <Group justify="center">
-                <Text size="xs" c={"dimmed"}>
-                  © Emma Broman
-                </Text>
-                <ContactLinks />
-                <Text size="xs" c={"dimmed"}>
-                  Last updated: {lastUpdateDate}
-                </Text>
-              </Group>
-            </Stack>
+            <Group justify="center" wrap="nowrap">
+              <Text size="xs" c={"dimmed"} visibleFrom="xs">
+                © Emma Broman
+              </Text>
+              <ContactLinks />
+              <Text size="xs" c={"dimmed"} visibleFrom="xs">
+                Last updated: {lastUpdateDate}
+              </Text>
+            </Group>
           </Center>
         </AppShell.Footer>
       </AppShell>

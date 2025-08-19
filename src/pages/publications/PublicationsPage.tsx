@@ -9,7 +9,7 @@ export function PublicationsPage() {
 
   return (
     <Container p={"md"}>
-      <Title order={2} my={"lg"}>
+      <Title order={2} mb={"md"}>
         Publications
       </Title>
       <Accordion variant="separated" chevron={<></>}>
