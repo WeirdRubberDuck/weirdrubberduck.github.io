@@ -11,7 +11,7 @@ import {
 import "@mantine/core/styles.css";
 import { IconSize } from "@util/enums";
 import type { PublicationData } from "@util/types";
-import { FaCloud, FaCode, FaRegFilePdf } from "react-icons/fa";
+import { FaCloud, FaCode, FaRegFileImage, FaRegFilePdf, FaVideo } from "react-icons/fa";
 import { SiDoi } from "react-icons/si";
 import { Fragment } from "react/jsx-runtime";
 
@@ -57,7 +57,18 @@ export function Publication({ data }: { data: PublicationData }) {
                 </Flex>
               </Anchor>
             )}
-
+            {data.poster && (
+              <Anchor
+                href={data.poster}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Flex align={"center"} gap={4}>
+                  <FaRegFileImage size={IconSize.xs} />
+                  Poster
+                </Flex>
+              </Anchor>
+            )}
             {data.bib && (
               <Anchor
                 href={data.bib}
@@ -101,6 +112,18 @@ export function Publication({ data }: { data: PublicationData }) {
                 <Flex align={"center"} gap={4}>
                   <FaCloud size={IconSize.xs} />
                   Web
+                </Flex>
+              </Anchor>
+            )}
+            {data.video && (
+              <Anchor
+                href={data.video}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Flex align={"center"} gap={4}>
+                  <FaVideo size={IconSize.xs} />
+                  Video
                 </Flex>
               </Anchor>
             )}
