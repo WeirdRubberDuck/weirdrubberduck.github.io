@@ -47,7 +47,11 @@ export function Publication({ data }: { data: PublicationData }) {
         <Group justify="space-between" wrap="nowrap" align="end">
           <Group gap={"xs"}>
             {data.pdf && (
-              <Anchor href={data.pdf} target="_blank">
+              <Anchor
+                href={data.pdf}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Flex align={"center"} gap={4}>
                   <FaRegFilePdf size={IconSize.xs} />
                   PDF
@@ -56,12 +60,21 @@ export function Publication({ data }: { data: PublicationData }) {
             )}
 
             {data.bib && (
-              <Anchor href={data.bib} target="_blank" download>
+              <Anchor
+                href={data.bib}
+                target="_blank"
+                download
+                onClick={(e) => e.stopPropagation()}
+              >
                 BibTeX
               </Anchor>
             )}
             {data.code && (
-              <Anchor href={data.code} target="_blank">
+              <Anchor
+                href={data.code}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Flex align={"center"} gap={4}>
                   <FaCode size={IconSize.xs} />
                   Code
@@ -69,7 +82,11 @@ export function Publication({ data }: { data: PublicationData }) {
               </Anchor>
             )}
             {data.doi && (
-              <Anchor href={data.doi} target="_blank">
+              <Anchor
+                href={data.doi}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Flex align={"center"} gap={4}>
                   <SiDoi size={IconSize.xs} />
                   DOI
@@ -77,7 +94,11 @@ export function Publication({ data }: { data: PublicationData }) {
               </Anchor>
             )}
             {data.website && (
-              <Anchor href={data.website} target="_blank">
+              <Anchor
+                href={data.website}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Flex align={"center"} gap={4}>
                   <FaCloud size={IconSize.xs} />
                   Web
