@@ -1,16 +1,5 @@
-import {
-  ActionIcon,
-  Anchor,
-  Container,
-  Group,
-  Paper,
-  Text,
-  Tooltip,
-} from "@mantine/core";
-
-import { FaEnvelope, FaGithub, FaLinkedin, FaOrcid } from "react-icons/fa";
-import { IconSize } from "@util/enums";
-import { FaGoogleScholar } from "react-icons/fa6";
+import { ContactLinks } from "@components/ContactLinks";
+import { Anchor, Box, Container, Group, Paper, Text } from "@mantine/core";
 
 export function FrontPage() {
   return (
@@ -39,70 +28,10 @@ export function FrontPage() {
         <Paper p="md" flex={1} miw={200}>
           <Text mb={"sm"}>About me</Text>
           <Text c={"dimmed"}>PhD Student and Research Engineer</Text>
-          <Text c={"dimmed"}>Linköping University</Text>
-
-          <Group mt="md" gap={"xs"}>
-            <Tooltip label="LinkedIn">
-              <ActionIcon variant="subtle">
-                <FaLinkedin
-                  size={IconSize.sm}
-                  onClick={() =>
-                    window.open(
-                      "https://www.linkedin.com/in/emmamariebroman/",
-                      "_blank"
-                    )
-                  }
-                />
-              </ActionIcon>
-            </Tooltip>
-
-            <Tooltip label="Github">
-              <ActionIcon
-                variant="subtle"
-                onClick={() =>
-                  window.open("https://github.com/WeirdRubberDuck", "_blank")
-                }
-              >
-                <FaGithub size={IconSize.sm} />
-              </ActionIcon>
-            </Tooltip>
-
-            <Tooltip label="Google Scholar">
-              <ActionIcon
-                variant="subtle"
-                onClick={() =>
-                  window.open(
-                    "https://scholar.google.com/citations?user=yOk0rWoAAAAJ&hl=sv",
-                    "_blank"
-                  )
-                }
-              >
-                <FaGoogleScholar size={IconSize.sm} />
-              </ActionIcon>
-            </Tooltip>
-
-            <Tooltip label="ORCID">
-              <ActionIcon
-                variant="subtle"
-                onClick={() =>
-                  window.open("https://orcid.org/0009-0006-0072-5134", "_blank")
-                }
-              >
-                <FaOrcid size={IconSize.sm} />
-              </ActionIcon>
-            </Tooltip>
-
-            <Tooltip label="Email">
-              <ActionIcon
-                variant="subtle"
-                onClick={() =>
-                  window.open("mailto:emma.broman@liu.se", "_blank")
-                }
-              >
-                <FaEnvelope size={IconSize.sm} />
-              </ActionIcon>
-            </Tooltip>
-          </Group>
+          <Text c={"dimmed"}>Linköping University, Sweden</Text>
+          <Box mt={"xs"}>
+            <ContactLinks />
+          </Box>
         </Paper>
       </Group>
     </Container>
