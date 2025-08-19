@@ -35,6 +35,21 @@ const theme = createTheme({
 export function App() {
   const [opened, { toggle }] = useDisclosure();
 
+  const links = [
+    <NavLink
+      label="Bio"
+      href="/"
+      variant="subtle"
+      active={window.location.pathname === "/"}
+    />,
+    <NavLink
+      label="Publications"
+      href="/publications"
+      variant="subtle"
+      active={window.location.pathname === "/publications"}
+    />,
+  ];
+
   return (
     <MantineProvider theme={theme} defaultColorScheme="dark">
       <AppShell header={{ height: 60 }} padding="md">
@@ -53,22 +68,9 @@ export function App() {
 
             <Center flex={3} visibleFrom="xs">
               <Group>
-                <Box>
-                  <NavLink
-                    label="Bio"
-                    href="/"
-                    variant="subtle"
-                    active={window.location.pathname === "/"}
-                  />
-                </Box>
-                <Box>
-                  <NavLink
-                    label="Publications"
-                    href="/publications"
-                    variant="subtle"
-                    active={window.location.pathname === "/publications"}
-                  />
-                </Box>
+                {links.map((link, index) => (
+                  <Box key={index}>{link}</Box>
+                ))}
               </Group>
             </Center>
             <Flex flex={1} miw={130} align="center" justify="flex-end">
@@ -83,8 +85,9 @@ export function App() {
                   />
                 </Menu.Target>
                 <Menu.Dropdown>
-                  <Menu.Item>Bio</Menu.Item>
-                  <Menu.Item>Publications</Menu.Item>
+                  {links.map((link, index) => (
+                    <Menu.Item key={index}>{link}</Menu.Item>
+                  ))}
                 </Menu.Dropdown>
               </Menu>
             </Flex>
