@@ -6,9 +6,11 @@ export function FrontPage() {
     <Container p={"md"}>
       <Group align="flex-start" gap={"lg"}>
         <Paper p="md" flex={2} miw={250}>
-          <Text mb={"sm"}>Hi, I'm Emma.</Text>
+          <Text size="xl" mb={"sm"}>
+            Hi, I'm Emma
+          </Text>
           <Text mb={"sm"}>
-            I'm a PhD student and research engineer in the{" "}
+            a PhD student and research engineer in the{" "}
             <Anchor href="https://www.liu.se/en/research/immersive-visualization">
               immersive visualization unit
             </Anchor>{" "}

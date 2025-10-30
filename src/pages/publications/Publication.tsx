@@ -11,7 +11,13 @@ import {
 import "@mantine/core/styles.css";
 import { IconSize } from "@util/enums";
 import type { PublicationData } from "@util/types";
-import { FaCloud, FaCode, FaRegFileImage, FaRegFilePdf, FaVideo } from "react-icons/fa";
+import {
+  FaCloud,
+  FaCode,
+  FaRegFileImage,
+  FaRegFilePdf,
+  FaVideo,
+} from "react-icons/fa";
 import { SiDoi } from "react-icons/si";
 import { Fragment } from "react/jsx-runtime";
 
