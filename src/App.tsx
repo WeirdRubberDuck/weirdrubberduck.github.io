@@ -52,6 +52,10 @@ export function App() {
       label: "Publications",
       href: "/publications",
     },
+    {
+      label: "Teaching",
+      href: "/teaching",
+    },
   ];
 
   return (
@@ -68,7 +72,7 @@ export function App() {
             <Flex flex={1} miw={130} align="center">
               <Anchor
                 href="/"
-                c="green.1"
+                c="teal.3"
                 size="xl"
                 style={{
                   fontFamily: "'Permanent Marker', cursive",
@@ -124,7 +128,6 @@ export function App() {
             </Flex>
           </Flex>
         </AppShell.Header>
-
         <AppShell.Main bg="background">
           <Outlet />
           <Group justify="center" wrap="nowrap" mt={"md"} hiddenFrom="xs">
