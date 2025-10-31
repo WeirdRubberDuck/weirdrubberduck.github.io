@@ -14,8 +14,8 @@ export function FrontPage() {
             <Anchor href="https://www.liu.se/en/research/immersive-visualization">
               immersive visualization unit
             </Anchor>{" "}
-            at Linköping University, Sweden. A large portion of my work goes
-            into the development of the{" "}
+            at Linköping University. A large portion of my work goes into the
+            development of the{" "}
             <Anchor href="https://www.openspaceproject.com/">
               OpenSpace software
             </Anchor>
