@@ -72,7 +72,9 @@ export function App() {
             <Flex flex={1} miw={130} align="center">
               <Anchor
                 href="/"
-                c="teal.3"
+                variant="gradient"
+                // Gradient colors from OpenSpace logo
+                gradient={{ from: "#c0d68d", to: "#69c4d7" }}
                 size="xl"
                 style={{
                   fontFamily: "'Permanent Marker', cursive",
