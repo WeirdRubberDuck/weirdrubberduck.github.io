@@ -1,4 +1,4 @@
-import { Accordion, Container, Divider, Title } from "@mantine/core";
+import { Accordion, Container, Divider, Title, Text } from "@mantine/core";
 import { Publication } from "./Publication";
 import { usePublications } from "./hooks";
 
@@ -22,7 +22,12 @@ export function PublicationsPage() {
               </Accordion.Control>
               <Accordion.Panel>
                 <Divider mb={"xs"} />
-                {pub.abstract}
+                <Text>
+                  <Text span fw={700}>
+                    Abstract
+                  </Text>
+                  : {pub.abstract}
+                </Text>
               </Accordion.Panel>
             </Accordion.Item>
           ))}
