@@ -59,7 +59,7 @@ export function App() {
   ];
 
   return (
-    <MantineProvider theme={theme} defaultColorScheme="dark">
+    <MantineProvider forceColorScheme="dark" theme={theme}>
       <AppShell header={{ height: 60 }} footer={{ height: 50 }} padding="md">
         <AppShell.Header
           p="xs"
